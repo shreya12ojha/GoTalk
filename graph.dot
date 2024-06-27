@@ -1,0 +1,30 @@
+digraph G {
+    node [fontname="Arial"];
+    
+    Start [shape=ellipse, label="Start"];
+    InitServer [shape=box, label="Initialize Server"];
+    ListenConnections [shape=box, label="Listen for Client Connections"];
+    ClientRequest [shape=parallelogram, label="Client Connection Request"];
+    EstablishConnection [shape=box, label="Establish Connection"];
+    AuthenticateUser [shape=diamond, label="Authenticate User"];
+    OpenChatSession [shape=box, label="Open Chat Session"];
+    SendMessage [shape=parallelogram, label="Send/Receive Messages"];
+    StoreMessage [shape=cylinder, label="Store Message in Database"];
+    CheckEndChat [shape=diamond, label="Check for End of Chat"];
+    CloseConnection [shape=box, label="Close Connection"];
+    End [shape=ellipse, label="End"];
+    
+    Start -> InitServer;
+    InitServer -> ListenConnections;
+    ListenConnections -> ClientRequest;
+    ClientRequest -> EstablishConnection;
+    EstablishConnection -> AuthenticateUser;
+    AuthenticateUser -> OpenChatSession [label="Yes"];
+    AuthenticateUser -> ClientRequest [label="No"];
+    OpenChatSession -> SendMessage;
+    SendMessage -> StoreMessage;
+    StoreMessage -> CheckEndChat;
+    CheckEndChat -> SendMessage [label="No"];
+    CheckEndChat -> CloseConnection [label="Yes"];
+    CloseConnection -> End;
+}
