@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Tech Stack}{4}{0}{1}
+\beamer@sectionintoc {2}{Timeline}{5}{0}{2}
+\beamer@sectionintoc {3}{Plan of Action}{6}{0}{3}
+\beamer@sectionintoc {4}{Future Scope}{8}{0}{4}
