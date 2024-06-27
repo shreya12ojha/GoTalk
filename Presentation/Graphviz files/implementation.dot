@@ -3,37 +3,26 @@ digraph G {
     
     Start [shape=ellipse, label="Start"];
     SetupEnv [shape=box, label="Set Up Project Environment and completing installations"];
-  
     DevelopServer [shape=box, label="Develop Server"];
     CreateHTTPServer [shape=box, label="Create Basic HTTP Server"];
     ImplementWebSocket [shape=box, label="Implement WebSocket Handling"];
-    
-    IntegrateDB [shape=box, label="Integrate Database"];
-
-    ImplementDBConnection [shape=box, label="Implement Database Connection"];
-    
-    ImplementAuth [shape=box, label="Implement Authentication"];
+    ImplementAuth [shape=box, label="Firebase for Authentication"];
+    ImplementDBConnection [shape=box, label="Use Firebase Realtime Database"];
     UserRegistration [shape=box, label="User Registration"];
     UserLogin [shape=box, label="User Login"];
-    
     DevelopChat [shape=box, label="Develop Chat Functionality"];
-  
     MessageBroadcast [shape=box, label="Implement Message Broadcasting"];
     StoreChatHistory [shape=box, label="Store Chat History (if time permits)"];
-    
     Testing [shape=box, label="Testing and solving bugs"];
-  
-    
     End [shape=ellipse, label="End"];
     
     Start -> SetupEnv ;
     SetupEnv -> DevelopServer;
     DevelopServer -> CreateHTTPServer;
     CreateHTTPServer -> ImplementWebSocket;
-    ImplementWebSocket -> IntegrateDB;
-    IntegrateDB -> ImplementDBConnection;
-    ImplementDBConnection -> ImplementAuth;
-    ImplementAuth -> UserRegistration;
+    ImplementWebSocket -> ImplementAuth;
+    ImplementAuth -> ImplementDBConnection;
+    ImplementDBConnection -> UserRegistration;
     UserRegistration -> UserLogin;
     UserLogin -> DevelopChat;
     DevelopChat  -> MessageBroadcast;
