@@ -30,7 +30,7 @@ $ cd gotalk
 2. Open the chat application window.
 <br>
 
-    This can be done in two ways:
+This can be done in two ways:
 - Open the "index.html" directly in the web browser. 
 - Run the following command in the terminal:
 ```
