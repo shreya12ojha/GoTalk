@@ -28,5 +28,21 @@ The chat application's primary HTML structure is found in the `index.html` file.
 The basic design of our chat application interface is specified in this file. It establishes a uniform font style throughout the application, ensures that buttons, input fields, and forms are appropriately spaced and aligned by providing styling for them. Messages are shown in a scrollable area and the chat container and messages list are designed to accommodate overflow.
 To visually distinguish between sent and received messages, different styles are employed, such as distinct background colors and text alignment. System communications can be distinguished from user messages by their distinct style.
 
+## script.js
+
+The main features of our chat program are controlled by this JavaScript file. It initializes the Firebase and WebSocket connections and retrieves the username and room details from the URL parameters. Sending messages to the Firebase database and WebSocket server is handled by the `sendMessage` function. Additionally, it keeps an eye out for fresh messages from the WebSocket server and Firebase, presenting them in the chat window. Whether the messages are sent by the user, received from others, or system messages determines how they are formatted. When a new message is added, the chat interface automatically scrolls to the most recent one.
+
+## "go.mod" and "go.sum"
+
+Our project is called gotalk, and the go.mod file tells the Go programming language which version (1.22.5) we are using. It also specifies that in order for our project to function properly, github.com/gorilla/websocket version 1.5.3 is a necessary tool.
+
+Security information is contained in the go.sum file. It contains unique codes, known as checksums, that guarantee the authenticity and the absence of tampering of the github.com/gorilla/websocket package. These codes aid in ensuring that our project will function precisely as intended when it is built.
+
+
+## room.js
+
+The `room.js` file implements the functionality to join chat rooms in our application. The `joinRoom` function retrieves the username entered by the user from an input field with the ID `username-input`. If a username is provided, it redirects the user to the `chat.html` page with URL parameters specifying the username and the chosen chat room (`room`). If no username is entered, it displays an alert asking the user to enter their name.
+
+
 
 ​
