@@ -1,169 +1,24 @@
-<!--
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Firebase Chat</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    #chat-container {
-      max-width: 500px;
-      margin: auto;
-    }
-    #messages {
-      list-style-type: none;
-      padding: 0;
-      height: 300px;
-      overflow-y: scroll;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-    }
-    #message-form {
-      display: flex;
-    }
-    #message-input {
-      flex: 1;
-      padding: 10px;
-    }
-    #send-btn {
-      padding: 10px;
-    }
-    .sent {
-      text-align: right;
-      background-color: #dcf8c6;
-    }
-    .receive {
-      text-align: left;
-      background-color: #f1f0f0;
-    }
-    li {
-      padding: 5px;
-      margin: 5px 0;
-      border-radius: 10px;
-    }
-    
-  .system {
-    text-align: center;
-    background-color: #f1f0f0;
-    color: #888;
-    font-style: italic;
-  }
-
-  .sent {
-    text-align: right;
-    background-color: #dcf8c6;
-  }
-
-  .receive {
-    text-align: left;
-    background-color: #f1f0f0;
-  }
-
-  li {
-    padding: 5px;
-    margin: 5px 0;
-    border-radius: 10px;
-  }
-  </style>
-</head>
-<body>
-  <div id="chat-container">
-    <ul id="messages"></ul>
-    <form id="message-form">
-      <input id="message-input" type="text" placeholder="Type a message" required>
-      <button id="send-btn" type="submit">Send</button>
-    </form>
-  </div>
-
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-  <script>
-var firebaseConfig = {
-  apiKey: "AIzaSyCYtQ0lj4_L0sbNbEMsxaX8SI0dF_HPHJI",
-  authDomain: "sunday-cb4e8.firebaseapp.com",
-  databaseURL: "https://sunday-cb4e8-default-rtdb.firebaseio.com",
-  projectId: "sunday-cb4e8",
-  storageBucket: "sunday-cb4e8.appspot.com",
-  messagingSenderId: "746339918524",
-  appId: "1:746339918524:web:8172796eba0dc0d96766b9",
-};
-
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-const username = prompt("Please Tell Us Your Name");
-const socket = new WebSocket('ws://localhost:3000');
-function sendMessage(e) {
-  e.preventDefault();
-  const timestamp = Date.now();
-  const messageInput = document.getElementById("message-input");
-  const message = messageInput.value;
-  messageInput.value = "";
-
-  const messageObject = {
-    username,
-    message,
-    timestamp
-  };
-
-  socket.send(JSON.stringify(messageObject));
-  db.ref("messages/" + timestamp).set(messageObject);
-}
-
-const fetchChat = db.ref("messages/");
-fetchChat.on("child_added", function (snapshot) {
-  const messages = snapshot.val();
-  displayMessage(messages);
-});
-
-document.getElementById("message-form").addEventListener("submit", sendMessage);
-
-socket.onmessage = function (event) {
-  const messages = JSON.parse(event.data);
-  displayMessage(messages);
-};
-
-function displayMessage(messages) {
-  const message = `<li class=${
-    messages.username === 'System' ? 'system' : username === messages.username ? "sent" : "receive"
-  }><span>${messages.username}: </span>${messages.message}</li>`;
-  document.getElementById("messages").innerHTML += message;
-  document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
-}
-
-window.onload = function() {
-  document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
-};
-
-  </script>
-</body>
-</html>
-
--->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Firebase Chat</title>
+  <title>Room Selection</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="chat-container">
-    <ul id="messages"></ul>
-    <form id="message-form">
-      <input id="message-input" type="text" placeholder="Type a message" required>
-      <button id="send-btn" type="submit">Send</button>
+  <div id="room-selection-container">
+    <h2>Select a Room</h2>
+    <form id="room-form">
+      <input id="username-input" type="text" placeholder="Enter your name" required>
+      <div class="room-buttons">
+        <button type="button" onclick="joinRoom('room1')">Room 1</button>
+        <button type="button" onclick="joinRoom('room2')">Room 2</button>
+        <button type="button" onclick="joinRoom('room3')">Room 3</button>
+      </div>
     </form>
   </div>
-
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-  <script src="script.js"></script>
+  
+  <script src="room.js"></script>
 </body>
 </html>
-
