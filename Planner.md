@@ -23,4 +23,10 @@ The chat application's primary HTML structure is found in the `index.html` file.
   - To communicate with Firebase services, use the Firebase SDK, which includes the Firebase App and Firebase Database SDKs.
   - The main script includes `script.js`, which has the JavaScript code needed to manage the chat feature.
 
+## CSS FILE ("styles.css")
+
+The basic design of our chat application interface is specified in this file. It establishes a uniform font style throughout the application, ensures that buttons, input fields, and forms are appropriately spaced and aligned by providing styling for them. Messages are shown in a scrollable area and the chat container and messages list are designed to accommodate overflow.
+To visually distinguish between sent and received messages, different styles are employed, such as distinct background colors and text alignment. System communications can be distinguished from user messages by their distinct style.
+
+
 ​
