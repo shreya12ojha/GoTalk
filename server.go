@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-var clients = make(map[*websocket.Conn]bool)
+var clients = make(map[*websocket.Conn]string) // Map to store clients and their rooms
 var broadcast = make(chan Message)
 var upgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool {
@@ -16,15 +16,14 @@ var upgrader = websocket.Upgrader{
 }
 
 type Message struct {
+	Room      string `json:"room"`
 	Username  string `json:"username"`
 	Message   string `json:"message"`
 	Timestamp int64  `json:"timestamp"`
 }
 
 func main() {
-
 	http.HandleFunc("/ws", handleConnections)
-
 	go handleMessages()
 
 	fs := http.FileServer(http.Dir("./public"))
@@ -38,18 +37,22 @@ func main() {
 }
 
 func handleConnections(w http.ResponseWriter, r *http.Request) {
-
 	ws, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer ws.Close()
 
-	clients[ws] = true
+	room := r.URL.Query().Get("room")
+	if room == "" {
+		log.Println("Room not specified")
+		return
+	}
+
+	clients[ws] = room
 
 	for {
 		var msg Message
-
 		err := ws.ReadJSON(&msg)
 		if err != nil {
 			log.Printf("error: %v", err)
@@ -63,14 +66,15 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 
 func handleMessages() {
 	for {
-
 		msg := <-broadcast
-		for client := range clients {
-			err := client.WriteJSON(msg)
-			if err != nil {
-				log.Printf("error: %v", err)
-				client.Close()
-				delete(clients, client)
+		for client, room := range clients {
+			if room == msg.Room {
+				err := client.WriteJSON(msg)
+				if err != nil {
+					log.Printf("error: %v", err)
+					client.Close()
+					delete(clients, client)
+				}
 			}
 		}
 	}
