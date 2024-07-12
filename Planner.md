@@ -43,6 +43,21 @@ Security information is contained in the go.sum file. It contains unique codes, 
 
 The `room.js` file implements the functionality to join chat rooms in our application. The `joinRoom` function retrieves the username entered by the user from an input field with the ID `username-input`. If a username is provided, it redirects the user to the `chat.html` page with URL parameters specifying the username and the chosen chat room (`room`). If no username is entered, it displays an alert asking the user to enter their name.
 
+## server.go
+
+Gorilla WebSocket (`github.com/gorilla/websocket`) is utilized to implement a WebSocket server in Go through the `server.go` file. It manages bidirectional communication for a chat application where users join chat rooms and communicate with each other in real-time.
+
+### Code Description:
+
+- **Variables and Imports**: Defines variables such as `clients` (a map of WebSocket connections to chat rooms) and `broadcast` (a channel for broadcasting messages) and imports necessary packages.
+
+- **Message Struct**: Defines a message structure (`Message`) that handles data like `Room`, `Username`, `Message`, and `Timestamp` for chat messages.
+
+- **Main Function (`main`)**: Serves static files, starts the HTTP server on port `:3000`, and configures HTTP routes, including WebSocket upgrading at `/ws`.
+
+- **`handleConnections` Function**: Manages WebSocket upgrades, assigns clients to chat rooms, reads incoming messages, broadcasts valid messages to all clients, handles disconnections, and maintains client records on errors.
+
+- **`handleMessages` Function**: Goroutine that broadcasts messages to clients in their respective chat rooms via the `broadcast` channel. Gracefully manages client disconnections.
 
 
 ​
