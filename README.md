@@ -7,6 +7,7 @@
 - **[Screenshots](#screenshots)**
 - **[Tech Stack](#tech-stack)**   
 - **[File Structure](#file-structure)**
+- **[Authors and Contributors](#authors-and-contributors)**
 ## About
 GoTalk is a real-time chatting application. This project aims to facilitate communication between users along with retrieving past chats. 
 
@@ -55,3 +56,11 @@ $ <browser_name> index.html
 
 - Presentation has been attached as and `presentation.pdf` and `presentation.pdf` with the relevant contents within `Presentation/`
 - Screenshots have been attached in `Screenshots/`
+
+## Authors and Contributors
+
+- Swasti Mishra, IIT(ISM) Dhanbad
+- Shreya Ojha, TCET Mumbai
+- Krishika Mehta, IIIT Allahabad
+- Samriddhi Tiwari, IIIT Guwahati
+
