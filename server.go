@@ -1,11 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"time"
+
 	"github.com/gorilla/websocket"
-	"fmt"
 )
 
 var clients = make(map[*websocket.Conn]bool) // connected clients
@@ -34,7 +35,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", handler)
-    http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8080", nil)
 }
 
 func handleConnections(w http.ResponseWriter, r *http.Request) {
@@ -72,31 +73,31 @@ func handleMessages() {
 }
 
 func SetCookie(w http.ResponseWriter, name, value string, expiration time.Time) {
-    cookie := http.Cookie{
-        Name:     name,
-        Value:    value,
-        Expires:  expiration,
-        HttpOnly: true,
-    }
-    http.SetCookie(w, &cookie)
+	cookie := http.Cookie{
+		Name:     name,
+		Value:    value,
+		Expires:  expiration,
+		HttpOnly: true,
+	}
+	http.SetCookie(w, &cookie)
 }
 
 func GetCookie(r *http.Request, name string) (*http.Cookie, error) {
-    cookie, err := r.Cookie(name)
-    if err != nil {
-        return nil, err
-    }
-    return cookie, nil
+	cookie, err := r.Cookie(name)
+	if err != nil {
+		return nil, err
+	}
+	return cookie, nil
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    expiration := time.Now().Add(24 * time.Hour)
-    SetCookie(w, "username", "exampleUser", expiration)
+	expiration := time.Now().Add(24 * time.Hour)
+	SetCookie(w, "username", "exampleUser", expiration)
 
 	cookie, err := GetCookie(r, "username")
-    if err != nil {
-        w.Write([]byte("Cookie not found"))
-        return
-    }
-    w.Write([]byte(fmt.Sprintf("Cookie value: %s", cookie.Value)))
+	if err != nil {
+		w.Write([]byte("Cookie not found"))
+		return
+	}
+	w.Write([]byte(fmt.Sprintf("Cookie value: %s", cookie.Value)))
 }
