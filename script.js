@@ -40,7 +40,14 @@ function sendMessage(e) {
     return; // Prevent sending empty messages
   }
 
-  const timestamp = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); // Get current time in hh:mm AM/PM format
+  const now = new Date();
+  const timestamp = now.toLocaleString('en-US', { 
+    year: 'numeric', 
+    month: '2-digit', 
+    day: '2-digit', 
+    hour: 'numeric', 
+    minute: '2-digit' 
+  }); // Get current date and time in YYYY-MM-DD hh:mm format
 
   const messageObject = {
     room,
@@ -70,24 +77,25 @@ socket.onmessage = function (event) {
 };
 
 function displayMessage(message) {
-  const messageTime = new Date(message.timestamp).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); // Format timestamp to hh:mm AM/PM
+  const messageParts = message.timestamp.split(' ');
+  const messageDate = messageParts[0]; // Extract date from timestamp
+  const messageTime = messageParts[1]; // Extract time from timestamp
 
   const messageElement = document.createElement("li");
-  
+
   // Set class based on message sender (username or system)
   messageElement.className = (message.username === 'System') ? 'system' : (message.username === username) ? "sent" : "received";
 
   messageElement.innerHTML = `
     <span class="message-sender">${message.username}: </span>
     <span class="message-text">${message.message}</span>
-    <span class="message-timestamp">${messageTime}</span>
+    <span class="message-timestamp">${messageDate} ${messageTime}</span>
   `;
-  
-  document.getElementById("messages").appendChild(messageElement);
-  document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
+
+  const messagesContainer = document.getElementById("messages");
+  messagesContainer.appendChild(messageElement);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to bottom
 }
-
-
 
 function setCookie(name, value, days) {
   var expires = "";
