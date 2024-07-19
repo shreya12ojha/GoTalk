@@ -32,11 +32,25 @@ const socket = new WebSocket('ws://localhost:3000/ws?room=' + room);
 
 function sendMessage(e) {
   e.preventDefault();
-  const timestamp = Date.now();
   const messageInput = document.getElementById("message-input");
-  const message = messageInput.value;
+  const message = messageInput.value.trim(); // Trim to remove extra whitespace
   messageInput.value = "";
 
+<<<<<<< HEAD
+=======
+  if (message === "") {
+    return; // Prevent sending empty messages
+  }
+
+  const now = new Date();
+  const timestamp = now.toLocaleString('en-US', { 
+    year: 'numeric', 
+    month: '2-digit', 
+    day: '2-digit', 
+    hour: 'numeric', 
+    minute: '2-digit' 
+  }); // Get current date and time in YYYY-MM-DD hh:mm format
+>>>>>>> dc225697d0629d77abc3afa010783570f0edabbe
 
   const messageObject = {
     room,
@@ -45,8 +59,10 @@ function sendMessage(e) {
     timestamp
   };
 
-  socket.send(JSON.stringify(messageObject));
-  db.ref(`rooms/${room}/messages/` + timestamp).set(messageObject);
+  socket.send(JSON.stringify(messageObject)); // Send message via WebSocket
+
+  // Save message to Firebase Realtime Database
+  db.ref(`rooms/${room}/messages`).push(messageObject);
 }
 
 const fetchChat = db.ref(`rooms/${room}/messages/`);
@@ -60,19 +76,29 @@ document.getElementById("message-form").addEventListener("submit", sendMessage);
 socket.onmessage = function (event) {
   const messages = JSON.parse(event.data);
   displayMessage(messages);
+  
 };
 
-function displayMessage(messages) {
-  const message = `<li class=${
-    messages.username === 'System' ? 'system' : username === messages.username ? "sent" : "receive"
-  }><span>${messages.username}: </span>${messages.message}</li>`;
-  document.getElementById("messages").innerHTML += message;
-  document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
+function displayMessage(message) {
+  const messageParts = message.timestamp.split(' ');
+  const messageDate = messageParts[0]; // Extract date from timestamp
+  const messageTime = messageParts[1]; // Extract time from timestamp
+
+  const messageElement = document.createElement("li");
+
+  // Set class based on message sender (username or system)
+  messageElement.className = (message.username === 'System') ? 'system' : (message.username === username) ? "sent" : "received";
+
+  messageElement.innerHTML = `
+    <span class="message-sender">${message.username}: </span>
+    <span class="message-text">${message.message}</span>
+    <span class="message-timestamp">${messageDate} ${messageTime}</span>
+  `;
+
+  const messagesContainer = document.getElementById("messages");
+  messagesContainer.appendChild(messageElement);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to bottom
 }
-
-window.onload = function() {
-  document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
-};
 
 function setCookie(name, value, days) {
   var expires = "";
