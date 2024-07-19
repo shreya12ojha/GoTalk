@@ -32,10 +32,15 @@ const socket = new WebSocket('ws://localhost:3000/ws?room=' + room);
 
 function sendMessage(e) {
   e.preventDefault();
-  const timestamp = Date.now();
   const messageInput = document.getElementById("message-input");
-  const message = messageInput.value;
+  const message = messageInput.value.trim(); // Trim to remove extra whitespace
   messageInput.value = "";
+
+  if (message === "") {
+    return; // Prevent sending empty messages
+  }
+
+  const timestamp = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); // Get current time in hh:mm AM/PM format
 
   const messageObject = {
     room,
@@ -44,8 +49,10 @@ function sendMessage(e) {
     timestamp
   };
 
-  socket.send(JSON.stringify(messageObject));
-  db.ref(`rooms/${room}/messages/` + timestamp).set(messageObject);
+  socket.send(JSON.stringify(messageObject)); // Send message via WebSocket
+
+  // Save message to Firebase Realtime Database
+  db.ref(`rooms/${room}/messages`).push(messageObject);
 }
 
 const fetchChat = db.ref(`rooms/${room}/messages/`);
@@ -59,19 +66,28 @@ document.getElementById("message-form").addEventListener("submit", sendMessage);
 socket.onmessage = function (event) {
   const messages = JSON.parse(event.data);
   displayMessage(messages);
+  
 };
 
-function displayMessage(messages) {
-  const message = `<li class=${
-    messages.username === 'System' ? 'system' : username === messages.username ? "sent" : "receive"
-  }><span>${messages.username}: </span>${messages.message}</li>`;
-  document.getElementById("messages").innerHTML += message;
+function displayMessage(message) {
+  const messageTime = new Date(message.timestamp).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); // Format timestamp to hh:mm AM/PM
+
+  const messageElement = document.createElement("li");
+  
+  // Set class based on message sender (username or system)
+  messageElement.className = (message.username === 'System') ? 'system' : (message.username === username) ? "sent" : "received";
+
+  messageElement.innerHTML = `
+    <span class="message-sender">${message.username}: </span>
+    <span class="message-text">${message.message}</span>
+    <span class="message-timestamp">${messageTime}</span>
+  `;
+  
+  document.getElementById("messages").appendChild(messageElement);
   document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
 }
 
-window.onload = function() {
-  document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
-};
+
 
 function setCookie(name, value, days) {
   var expires = "";
