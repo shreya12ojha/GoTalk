@@ -36,6 +36,66 @@
       height: 400px; /* Set the height of the chat container */
       overflow-y: scroll; /* Enable vertical scrolling */
     }
+    .message {
+      display: flex;
+      flex-direction: column;
+      max-width: 70%;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .sent {
+      align-self: flex-end;
+      background-color: #dcf8c6; /* Light green background for sent messages */
+    }
+    .received {
+      align-self: flex-start;
+      background-color: #e0e0e0; /* Light gray background for received messages */
+    }
+    .message-content {
+      margin-bottom: 5px;
+    }
+    .message-sender {
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+    .message-text {
+      word-wrap: break-word; /* Wrap long messages */
+    }
+    .message-timestamp {
+      align-self: flex-end;
+      font-size: 0.8em;
+      color: #777;
+    }
+    form {
+      display: flex;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    form input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+    }
+    form button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #0056b3;
+    }
+    form button:focus {
+      outline: none;
+    }
+
   </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
