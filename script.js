@@ -50,6 +50,7 @@ function sendMessage(e) {
     hour12: true   
   });
 
+
   const messageObject = {
     room,
     username,
@@ -121,3 +122,20 @@ function getCookie(name) {
   return null;
 }
 
+function formatTimestamp(timestamp) {
+  const date = new Date(timestamp * 1000); // Convert to milliseconds
+  const options = { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric', 
+    hour: '2-digit', 
+    minute: '2-digit' 
+  };
+  return date.toLocaleDateString(undefined, options);
+}
+
+socket.onmessage = function(event) {
+  const msg = JSON.parse(event.data);
+  displayMessage(msg);
+};

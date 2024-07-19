@@ -37,8 +37,7 @@
             <h1 class="title-font font-medium text-3xl text-gray-900">Sign up to GoTalk</h1>
             <p class="leading-relaxed mt-4">Begin your chatting journey now! Get access to chat rooms containing diverse people; thereby helping you forge meaningful connections.</p>
           </div>
-          <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-            <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2>
+          <form id="sign-up-form">
             <div class="relative mb-4">
               <label for="full-name" class="leading-7 text-sm text-gray-600">Full Name</label>
               <input type="text" id="full-name" name="full-name" class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
@@ -47,10 +46,19 @@
               <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
               <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
+
+            <div class="relative mb-4">
+              <label for="password" class="leading-7 text-sm text-gray-600">Password</label>
+              <input type="password" id="password" name="password" class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <button type="submit" class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-800 rounded text-lg">Submit</button>
+
             <!-- <button class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-800 rounded text-lg">Submit</button> -->
             <a href="index.html" class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-800 rounded text-lg">Submit</a>
+
             <p class="text-xs text-gray-500 mt-3">Redirects to chatroom page.</p>
-          </div>
+          </form>
+          
         </div>
       </section>
       <footer class="w-full bg-white text-gray-600 body-font fixed bottom-0">
@@ -90,5 +98,6 @@
           </span>
         </div>
       </footer>
+      <script type = "module" src="login.js"></script>
 </body>
 </html>

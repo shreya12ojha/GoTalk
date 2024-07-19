@@ -55,6 +55,7 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 			break
 		}
 		msg.Timestamp = time.Now().Unix()
+
 		broadcast <- msg
 	}
 }
