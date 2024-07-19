@@ -36,8 +36,6 @@ function sendMessage(e) {
   const message = messageInput.value.trim(); // Trim to remove extra whitespace
   messageInput.value = "";
 
-<<<<<<< HEAD
-=======
   if (message === "") {
     return; // Prevent sending empty messages
   }
@@ -50,7 +48,7 @@ function sendMessage(e) {
     hour: 'numeric', 
     minute: '2-digit' 
   }); // Get current date and time in YYYY-MM-DD hh:mm format
->>>>>>> dc225697d0629d77abc3afa010783570f0edabbe
+
 
   const messageObject = {
     room,
