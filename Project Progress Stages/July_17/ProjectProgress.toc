@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{Tech Stack}{3}{0}{1}
+\beamer@sectionintoc {2}{Tasks Completed Till Now}{4}{0}{2}
+\beamer@sectionintoc {3}{New Tasks Done}{7}{0}{3}
+\beamer@sectionintoc {4}{Tasks done so far}{8}{0}{4}
+\beamer@sectionintoc {5}{Tasks to Be Done Ahead}{10}{0}{5}
+\beamer@sectionintoc {6}{Screenshots}{11}{0}{6}
+\beamer@sectionintoc {7}{Conclusion}{15}{0}{7}
