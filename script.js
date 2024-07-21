@@ -42,12 +42,13 @@ function sendMessage(e) {
 
   const now = new Date();
   const timestamp = now.toLocaleString('en-US', { 
+    day: '2-digit',  
+    month: 'numeric', 
     year: 'numeric', 
-    month: '2-digit', 
-    day: '2-digit', 
-    hour: 'numeric', 
-    minute: '2-digit' 
-  }); // Get current date and time in YYYY-MM-DD hh:mm format
+    hour: 'numeric',  
+    minute: '2-digit',  
+    hour12: true   
+  });
 
 
   const messageObject = {
