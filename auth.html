@@ -50,7 +50,7 @@
                     </div>
 
                     <button type="button" id="register" name="register" class="btn btn-success">Register Now</button>
-                </div><!-- end col -->
+                </div>
         </form>
         <div class="col-sm-4">
             <centre><img src="icon.png"></centre>
@@ -76,23 +76,19 @@
                         placeholder="Enter your password">
                 </div>
                 <button type="button" id="login" name="login" class="btn btn-success">Login</button>
-            </div><!-- end col -->
-    </div><!--  end row -->
+            </div>
+    </div>
     </form>
     </div>
 </body>
 
 <script type="module">
 
-    // Import the functions you need from the SDKs you need
+    
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
         apiKey: "AIzaSyDEPpKnOfxVRaShsostDY___apdL-Ht9O0",
         authDomain: "monday-8c2d0.firebaseapp.com",
@@ -107,14 +103,13 @@
     const auth = getAuth();
     console.log(app);
 
-    //----- New Registration code start	  
     document.getElementById("register").addEventListener("click", function () {
         var email = document.getElementById("email").value;
         var password = document.getElementById("password").value;
-        //For new registration
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
+                
                 const user = userCredential.user;
                 console.log(user);
                 alert("Registration successfully!!");
@@ -128,7 +123,7 @@
                 alert(error);
             });
     });
-    //----- Login code start	  
+    	  
     document.getElementById("login").addEventListener("click", function () {
         var email = document.getElementById("login_email").value;
         var password = document.getElementById("login_password").value;
@@ -139,7 +134,7 @@
                 const user = userCredential.user;
                 console.log(user);
                 // alert(user.email + " Login successfully!!!");
-                if(confirm("Login successfully !!"))
+                if(confirm)
             {
                 window.location.replace("index.html");
             }
