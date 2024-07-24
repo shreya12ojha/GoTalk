@@ -36,6 +36,7 @@ The following reasons give a clear explanation as to why we are using it:
 - Routing: to route incoming requests to the correct handler functions based on the URL path.
 
 
+
 ### **github.com/gorilla/websocket**: This package provides a WebSocket implementation for Go.
 
 *Why is it required?*
@@ -52,3 +53,33 @@ The above makes it clear why we thought it would be a perfect tool for us to use
 - WebSocket protocol support: The `gorilla/websocket` package implements the WebSocket protocol, which enables two-way communication between the client and the server over a single, long-lived connection.
 - Reliable *(Well maintained and widely used)*
 - Flexibility: It offers various configuration options, such as read and write buffer sizes, connection timeouts, and origin checks, allowing you to customize its behavior to suit your application's needs.
+
+### **fmt**: This package provides formatted I/O functions.
+
+*Why is it required?*
+
+The `fmt` package is essential for formatting and printing output in Go applications. It allows you to format strings, integers, and other data types in a way that is easy to read and debug.
+
+*What does it do for us?*
+
+- **String Formatting**: It provides functions like `fmt.Sprintf` for formatting strings with variables, which is useful for generating dynamic messages or output.
+- **Print Statements**: Functions such as `fmt.Printf` and `fmt.Println` are used to print formatted output to the console or log files, which helps in debugging and monitoring application behavior.
+- **Error Messages**: It formats error messages and other output in a standardized way, making it easier to track and understand issues in the code.
+
+In our server code, `fmt` is used to format and output strings, such as when setting and retrieving cookies or displaying messages.
+
+### **time**: This package provides functionality for measuring and displaying time.
+
+*Why is it required?*
+
+The `time` package is used to handle and manipulate time and dates in Go. This is crucial for tasks that require time-based operations, such as timestamping messages or setting expiration times for cookies.
+
+*What does it do for us?*
+
+- **Current Time**: Functions like `time.Now()` return the current time, which is useful for timestamping messages or events.
+- **Time Manipulation**: It allows you to add or subtract time durations, set expiration times, and perform other time-based calculations.
+- **Formatting**: Functions like `time.Format` let you format time values into readable strings, which can be useful for displaying timestamps in a user-friendly format.
+
+In our server code, `time` is used to:
+- **Generate Timestamps**: It assigns timestamps to chat messages for proper ordering and display.
+- **Handle Expirations**: It sets expiration times for cookies, ensuring they are valid for a specific duration.
