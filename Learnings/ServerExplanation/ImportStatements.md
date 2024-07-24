@@ -68,4 +68,18 @@ The `fmt` package is essential for formatting and printing output in Go applicat
 
 In our server code, `fmt` is used to format and output strings, such as when setting and retrieving cookies or displaying messages.
 
+### **time**: This package provides functionality for measuring and displaying time.
 
+*Why is it required?*
+
+The `time` package is used to handle and manipulate time and dates in Go. This is crucial for tasks that require time-based operations, such as timestamping messages or setting expiration times for cookies.
+
+*What does it do for us?*
+
+- **Current Time**: Functions like `time.Now()` return the current time, which is useful for timestamping messages or events.
+- **Time Manipulation**: It allows you to add or subtract time durations, set expiration times, and perform other time-based calculations.
+- **Formatting**: Functions like `time.Format` let you format time values into readable strings, which can be useful for displaying timestamps in a user-friendly format.
+
+In our server code, `time` is used to:
+- **Generate Timestamps**: It assigns timestamps to chat messages for proper ordering and display.
+- **Handle Expirations**: It sets expiration times for cookies, ensuring they are valid for a specific duration.
