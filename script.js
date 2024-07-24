@@ -139,3 +139,8 @@ socket.onmessage = function(event) {
   const msg = JSON.parse(event.data);
   displayMessage(msg);
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+  const messagesContainer = document.getElementById("messages");
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+});
