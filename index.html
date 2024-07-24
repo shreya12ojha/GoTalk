@@ -1,93 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Room Selection</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+	<title>GoTalk</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords"
+		content="Transporters web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web Designs" />
+	<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+
+	<link
+		href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext"
+		rel="stylesheet">
+	<link
+		href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+		rel="stylesheet">
+	<style>
+		body {
+			background-color: #000000;
+		}
+	</style>
 </head>
-<body class="bg-green-50 flex items-center justify-center min-h-screen flex-col">
-  <header class="w-full bg-white shadow-md fixed top-0 z-10">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-        <img src = "icon.png">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-        </img>
-        <span class="ml-3 text-xl">GoTalk</span>
-      </a>
-      <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-        <a class="mr-5 hover:text-gray-900" href="index.html" href="index.html">Chat Rooms</a>
-        <a class="mr-5 hover:text-gray-900" href="#">Features</a>
-        <a class="mr-5 hover:text-gray-900" href="#">About us</a>
-      </nav>
-      <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"> <a href = "auth.html">Login</a>
-        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-          <path d="M5 12h14M12 5l7 7-7 7"></path>
-        </svg>
-      </button>
-    </div>
-  </header>
 
-  <div id="messages"></div>
-  <input type="text" id="username" placeholder="Username" />
-  <input type="text" id="message" placeholder="Message" />
-  <button id="sendBtn">Send</button>
+<body>
+	<header class="w-full bg-white shadow-md fixed top-0 z-10">
+		<div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+			<a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+				<img src="icon.png" alt="icon" class="w-10 h-10">
+				<span class="ml-3 text-xl"><a href="cover.html">GoTalk</a></span>
+			</a>
+			<nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+				<a class="mr-5 hover:text-gray-900" href="index.html">Chat Rooms</a>
+				<a class="mr-5 hover:text-gray-900" href="#">Features</a>
+				<a class="mr-5 hover:text-gray-900" href="#">About us</a>
+			</nav>
 
-  
-  <main class="flex-grow flex items-center justify-center pt-20">
-    <div id="room-selection-container" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-      <h2 class="text-2xl font-bold text-green-500 mb-6 text-center">Select a Room</h2>
-      <form id="room-form" class="space-y-4">
-        <input id="username-input" type="text" placeholder="Enter your name" required
-               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-        <div class="room-buttons flex justify-between">
-          <button type="button" onclick="joinRoom('room1')"
-                  class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600 transition ease-in-out duration-200 mx-2">Room 1</button>
-          <button type="button" onclick="joinRoom('room2')"
-                  class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600 transition ease-in-out duration-200 mx-2">Room 2</button>
-          <button type="button" onclick="joinRoom('room3')"
-                  class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600 transition ease-in-out duration-200 mx-2">Room 3</button>
-        </div>
-      </form>
-    </div>
-  </main>
-  <footer class="w-full bg-white text-gray-600 body-font fixed bottom-0">
-    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-        </svg>
-        <span class="ml-3 text-xl">GoTalk</span>
-      </a>
-      <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 GoTalk —
-        <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Hacktivists</a>
-      </p>
-      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-        <a class="text-gray-500">
-          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-          </svg>
-        </a>
-        <a class="ml-3 text-gray-500">
-          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-          </svg>
-        </a>
-        <a class="ml-3 text-gray-500">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-          </svg>
-        </a>
-        <a class="ml-3 text-gray-500">
-          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
-            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
-            <circle cx="4" cy="4" r="2" stroke="none"></circle>
-          </svg>
-        </a>
-      </span>
-    </div>
-  </footer>
-  <script src="room.js"></script>
+		</div>
+	</header>
+	<section class="header">
+		<div class="partion">
+			<div class="partion-one">
+				<a href="index.html" name="top"><img src="gooo.png" width="300px" /></a>
+				<!--<div class="login-list">
+						<a href="index.html" class="login-list-item">Log-in as User</a><br />
+						<a href="LoginFormAdmin.html" class="login-list-item">Log-in as Admin</a><br />
+						<a href="LoginFormStation.html" class="login-list-item">Log-in as Charging Station</a><br />
+					</div> -->
+			</div>
+			<div class="partion-two">
+				<span class="bound">
+					<div>
+						<h1>Welcome</h1>
+						<p class="sub-para">Let's chat</p><br /><br />
+					</div>
+				</span>
+				<span class="bound" id="bound-two">
+					<p class="heading">USER LOG-IN</p><br /><br />
+				</span>
+				<form action="#" method="post">
+					<input type="email" placeholder="Enter Email-ID" class="input-area" name="UserEmail" id="email"
+						required=""><br /><br />
+					<input type="Password" placeholder="Enter Password" class="input-area" id="password" name="UserPS"
+						required="">
+					<br /><br /><br /><br />
+
+				</form>
+				<button class="log-in-button" type="submit" id="login">Log
+					In</button><br /><br />
+				<button class="log-in-button" type="submit" id="register"> Register </button><br /><br />
+
+			</div>
+		</div>
+	</section>
+
+	<footer class="w-full bg-white text-gray-600 body-font fixed bottom-0">
+		<div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+			<a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900" href="#">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+					stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-green-500 rounded-full"
+					viewBox="0 0 24 24">
+					<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+				</svg>
+				<span class="ml-3 text-xl">GoTalk</span>
+			</a>
+			<p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©
+				2024 GoTalk —
+				<a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer"
+					target="_blank">Hacktivists</a>
+			</p>
+			<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+				<a class="text-gray-500" href="#">
+					<svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+						class="w-5 h-5" viewBox="0 0 24 24">
+						<path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+					</svg>
+				</a>
+				<a class="ml-3 text-gray-500" href="#">
+					<svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+						class="w-5 h-5" viewBox="0 0 24 24">
+						<path
+							d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+						</path>
+					</svg>
+				</a>
+				<a class="ml-3 text-gray-500" href="#">
+					<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+						stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+						<rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+						<path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+					</svg>
+				</a>
+				<a class="ml-3 text-gray-500" href="#">
+					<svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+						stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+						<path stroke="none"
+							d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+						</path>
+						<circle cx="4" cy="4" r="2" stroke="none"></circle>
+					</svg>
+				</a>
+			</span>
+		</div>
+	</footer>
 </body>
+<script type="module">
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+	import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+	import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+
+	const firebaseConfig = {
+		apiKey: "AIzaSyDEPpKnOfxVRaShsostDY___apdL-Ht9O0",
+		authDomain: "monday-8c2d0.firebaseapp.com",
+		databaseURL: "https://monday-8c2d0-default-rtdb.firebaseio.com",
+		projectId: "monday-8c2d0",
+		storageBucket: "monday-8c2d0.appspot.com",
+		messagingSenderId: "701988976288",
+		appId: "1:701988976288:web:3774fd6c7ab5481977fbc5",
+	};
+	const app = initializeApp(firebaseConfig);
+	const analytics = getAnalytics(app);
+	const auth = getAuth();
+	console.log(app);
+
+	document.getElementById("register").addEventListener("click", function () {
+		var email = document.getElementById("email").value;
+		var password = document.getElementById("password").value;
+
+		createUserWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+
+				const user = userCredential.user;
+				console.log(user);
+				alert("Registration successfully!!");
+
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				// ..
+				console.log(errorMessage);
+				alert(error);
+			});
+	});
+
+	document.getElementById("login").addEventListener("click", function () {
+		var email = document.getElementById("email").value;
+		var password = document.getElementById("password").value;
+
+		signInWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+
+				const user = userCredential.user;
+				//console.log(user);
+				// alert(user.email + " Login successfully!!!");
+				if (confirm) {
+					window.location.replace("room.html");
+				}
+				//document.getElementById('logout').style.display = 'block';
+				// Window.location.href = "chat.html";
+
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				console.log(errorMessage);
+				alert(errorMessage);
+			});
+	});
+
+	document.getElementById("logout").addEventListener("click", function () {
+		signOut(auth).then(() => {
+			// Sign-out successful.
+			console.log('Sign-out successful.');
+			alert('Sign-out successful.');
+			document.getElementById('logout').style.display = 'none';
+		}).catch((error) => {
+			// An error happened.
+			console.log('An error happened.');
+		});
+	});
+
+</script>
+
 </html>
