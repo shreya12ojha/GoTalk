@@ -84,7 +84,7 @@
 	text-align: center;
 	font-size: 18px;
 	text-decoration: none;
-	color: #ef7c48;
+	color: rgb(0, 0, 0);
 	border: 1px solid #fff;
 	padding: 12px 10px;
 	background-color: #fff;
@@ -94,7 +94,7 @@
 }
 .log-in-button:hover
 {
-	background-color: #ef7c48;
+	background-color: rgb(34 197 94);
 	color: #fff;
 	transition: 0s;
 }
