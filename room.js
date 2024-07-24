@@ -1,3 +1,5 @@
+/*
+
 function joinRoom(room) {
     const username = document.getElementById('username-input').value;
     if (username) {
@@ -7,3 +9,4 @@ function joinRoom(room) {
     }
   }
   
+  */
