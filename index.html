@@ -26,10 +26,12 @@
 <body>
 	<header class="w-full bg-blue-1000 shadow-md fixed top-0 z-10">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      
       <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
         <img src="icon.png" alt="icon" class="w-10 h-10">
         <span class="ml-3 text-xl text-white"><a href="cover.html">GoTalk</a></span>
       </a>
+      
       <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
         <a class="mr-5 hover:text-green-500 text-white" href="index.html">Chat Rooms</a>
         <a class="mr-5 hover:text-green-500 text-white" href="features.html">Features</a>
@@ -38,7 +40,8 @@
      
     </div>
   </header>
-	<section class="header">
+	
+    <section class="header">
 		<div class="partion">
 			<div class="partion-one">
 				<a href="index.html" name="top"><img src="mainpage.gif" /></a>
@@ -77,6 +80,7 @@
 		  <p class="text-sm text-center">© 2024 GoTalk — All rights reserved  |   A project by Hacktivists.</p>
 		</div>
 	  </footer>
+
 </body>
 
 <script type="module">
@@ -93,7 +97,8 @@
 		messagingSenderId: "701988976288",
 		appId: "1:701988976288:web:3774fd6c7ab5481977fbc5",
 	};
-	const app = initializeApp(firebaseConfig);
+	
+    const app = initializeApp(firebaseConfig);
 	const analytics = getAnalytics(app);
 	const auth = getAuth();
 	console.log(app);

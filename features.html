@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,23 +30,23 @@
       display: flex;
       align-items: flex-start;
       padding: 4rem 17rem;
-      margin-top: 75px; /* Ensure content doesn't overlap header */
-      margin-bottom: 75px; /* Ensure content doesn't overlap footer */
-      justify-content: center; /* Center align content */
+      margin-top: 75px;
+      margin-bottom: 75px; 
+      justify-content: center; 
       flex-direction: column;
     }
     .content-container {
-      background-color: rgba(255, 255, 255, 0.645); /* Slightly transparent white background */
+      background-color: rgba(255, 255, 255, 0.645); 
       border-radius: 8px;
       padding: 2rem;
       width: 100%;
       max-width: 500px;
       height: auto;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2rem; /* Add space below the content container */
+      margin-bottom: 2rem; 
     }
     .image-container {
-      max-width: 100%; /* Ensure it does not exceed container width */
+      max-width: 100%; 
       height: auto;
       flex: 1;
       display: flex;
@@ -55,39 +54,47 @@
       justify-content: center;
     }
     .image-container img {
-      max-width: 87%; /* Make sure the image scales to fit the container */
-      height: auto; /* Maintain aspect ratio */
+      max-width: 87%; 
+      height: auto; 
       border-radius: 8px;
     }
   </style>
 </head>
+
 <body>
+
   <header class="w-full bg-blue-1000 shadow-md fixed top-0">
     <div class="container mx-auto flex flex-wrap flex-col md:flex-row items-center">
+      
       <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
         <img src="icon.png" alt="icon">
         <span class="ml-3 text-xl text-white"><a href="cover.html">GoTalk</a></span>
       </a>
+      
       <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
         <a class="mr-5 hover:text-green-500 text-white" href="index.html">Chat Rooms</a>
         <a class="mr-5 hover:text-green-500 text-white" href="features.html">Features</a>
         <a class="mr-5 hover:text-green-500 text-white" href="#">About us</a>
       </nav>
+      
       <button class="inline-flex items-center bg-green-500 border-0 py-1 px-3 focus:outline-none hover:bg-green-700 text-white rounded text-base mt-4 md:mt-0">
         <a href="index.html">Register/ Login</a>
         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
           <path d="M5 12h14M12 5l7 7-7 7"></path>
         </svg>
       </button>
+    
     </div>
   </header>
 
   <section class="text-white body-font">
+    
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
         <h1 class="sm:text-3xl text-2xl font-bold title-font mb-2 text-white">Welcome to GoTalk!</h1>
         <p class="lg:w-1/2 w-full leading-relaxed text-white">Your one-step destination to chatting and getting to know a diverse range of people.</p>
       </div>
+      
       <div class="flex flex-wrap justify-center">
         <div class="xl:w-1/3 md:w-1/2 p-4">
           <div class="border border-gray-200 p-6 rounded-lg">
@@ -96,10 +103,13 @@
                 <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
               </svg>
             </div>
+
             <h2 class="text-lg text-white font-bold title-font mb-2">Dynamic Functional Rooms</h2>
+            
             <p class="leading-relaxed text-base text-white">Enjoy a seamless chatting experience with three dedicated rooms, each designed to keep your messages organized and private. Switch between rooms effortlessly.</p>
           </div>
         </div>
+
         <div class="xl:w-1/3 md:w-1/2 p-4">
           <div class="border border-gray-200 p-6 rounded-lg">
             <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4">
@@ -111,6 +121,7 @@
             <p class="leading-relaxed text-base text-white">Our smart cookies system ensures you stay connected without the hassle of re-login.</p>
           </div>
         </div>
+
         <div class="xl:w-1/3 md:w-1/2 p-4 flex justify-center">
           <div class="border border-gray-200 p-6 rounded-lg w-full max-w-sm">
             <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4">
@@ -121,9 +132,12 @@
               </svg>
             </div>
             <h2 class="text-lg text-white font-bold title-font mb-2">Real-Time Communication</h2>
+            
             <p class="leading-relaxed text-base text-white">Engage in lively, real-time conversations powered by Firebase’s robust and centralized database. Our cutting-edge technology ensures your messages are delivered instantly, so you never miss a beat.</p>
+          
           </div>
         </div>
+
         <div class="xl:w-1/3 md:w-1/2 p-4 flex justify-center">
           <div class="border border-gray-200 p-6 rounded-lg w-full max-w-sm">
             <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4">
@@ -133,6 +147,7 @@
               </svg>
             </div>
             <h2 class="text-lg text-white font-bold title-font mb-2">Intuitive User Interface</h2>
+            
             <p class="leading-relaxed text-base text-white">Navigate with ease through our sleek and modern UI, designed for a smooth user experience. From user-friendly chat rooms to seamless profile management, everything is just a click away.</p>
             
               <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -143,6 +158,7 @@
         </div>
         
       </div>
+      
       <div class="center-button-container">
       <button class="align-center inline-flex items-center bg-green-500 border-0 py-1 px-3 focus:outline-none hover:bg-green-700 text-white rounded text-base mt-4 md:mt-0">
         <a href="index.html">What are you waiting for? Get started now!</a>
@@ -157,5 +173,6 @@
       <p class="text-sm text-center">© 2024 GoTalk — All rights reserved  |   A project by Hacktivists.</p>
     </div>
   </footer>
+
 </body>
 </html>
