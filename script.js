@@ -1,4 +1,4 @@
-// Get username and room from URL parameters
+
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username');
 const room = urlParams.get('room');
@@ -10,7 +10,7 @@ if (username) {
     console.log("Hello, new user");
 }
 
-// Ensure username and room are present
+
 if (!username || !room) {
   alert("Username and room are required");
   window.location.href = "index.html";
@@ -33,11 +33,11 @@ const socket = new WebSocket('ws://localhost:3000/ws?room=' + room);
 function sendMessage(e) {
   e.preventDefault();
   const messageInput = document.getElementById("message-input");
-  const message = messageInput.value.trim(); // Trim to remove extra whitespace
+  const message = messageInput.value.trim(); 
   messageInput.value = "";
 
   if (message === "") {
-    return; // Prevent sending empty messages
+    return; 
   }
 
   const now = new Date();
@@ -50,7 +50,6 @@ function sendMessage(e) {
     hour12: true   
   });
 
-
   const messageObject = {
     room,
     username,
@@ -58,9 +57,9 @@ function sendMessage(e) {
     timestamp
   };
 
-  socket.send(JSON.stringify(messageObject)); // Send message via WebSocket
+  socket.send(JSON.stringify(messageObject)); 
 
-  // Save message to Firebase Realtime Database
+ 
   db.ref(`rooms/${room}/messages`).push(messageObject);
 }
 
@@ -75,7 +74,6 @@ document.getElementById("message-form").addEventListener("submit", sendMessage);
 socket.onmessage = function (event) {
   const messages = JSON.parse(event.data);
   displayMessage(messages);
-  
 };
 
 function displayMessage(message) {
@@ -85,7 +83,7 @@ function displayMessage(message) {
 
   const messageElement = document.createElement("li");
 
-  // Set class based on message sender (username or system)
+  
   messageElement.className = (message.username === 'System') ? 'system' : (message.username === username) ? "sent" : "received";
 
   messageElement.innerHTML = `
@@ -96,7 +94,7 @@ function displayMessage(message) {
 
   const messagesContainer = document.getElementById("messages");
   messagesContainer.appendChild(messageElement);
-  messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to bottom
+  messageElement.scrollIntoView({ behavior: "smooth" }); 
 }
 
 function setCookie(name, value, days) {
@@ -123,7 +121,7 @@ function getCookie(name) {
 }
 
 function formatTimestamp(timestamp) {
-  const date = new Date(timestamp * 1000); // Convert to milliseconds
+  const date = new Date(timestamp * 1000); 
   const options = { 
     weekday: 'long', 
     year: 'numeric', 
