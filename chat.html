@@ -8,12 +8,19 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
-      background-image: linear-gradient(rgba(4,9,30,0.65), rgba(4,9,30,0.65)), url(cinematic.jpg);
+      background-image: linear-gradient(rgba(4, 9, 30, 0.65), rgba(4, 9, 30, 0.65)), url(cinematic.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
     }
+    
     #chat-container {
-      height: 400px; 
+      height: 400px;
       overflow-y: scroll;
+      background: rgba(255, 255, 255, 0.8); /* Make the white box more transparent */
     }
+    
     .message {
       display: flex;
       flex-direction: column;
@@ -22,34 +29,42 @@
       padding: 10px;
       border-radius: 10px;
     }
+    
     .sent {
       align-self: flex-end;
       background-color: #dcf8c6;
     }
+    
     .received {
       align-self: flex-start;
       background-color: #e0e0e0;
     }
+    
     .message-content {
       margin-bottom: 5px;
     }
+    
     .message-sender {
       font-weight: bold;
       margin-bottom: 2px;
     }
+    
     .message-text {
-      word-wrap: break-word; 
+      word-wrap: break-word;
     }
+    
     .message-timestamp {
       align-self: flex-end;
       font-size: 0.8em;
       color: #777;
     }
+    
     form {
       display: flex;
       margin-top: 20px;
       margin-bottom: 20px;
     }
+    
     form input[type="text"] {
       flex: 1;
       padding: 10px;
@@ -58,6 +73,7 @@
       border-radius: 4px 0 0 4px;
       outline: none;
     }
+    
     form button {
       padding: 10px 20px;
       background-color: #007bff;
@@ -67,27 +83,27 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+    
     form button:hover {
       background-color: #0056b3;
     }
+    
     form button:focus {
       outline: none;
     }
-
   </style>
 </head>
-
 
 <body class="flex items-center justify-center min-h-screen">
 
   <header class="w-full bg-blue-1000 shadow-md fixed top-0 z-10">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
       <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-        <a href="index.html"><img src="icon.png" ></a>
+        <a href="index.html"><img src="icon.png"></a>
         <span class="ml-3 text-xl text-white"><a href="cover.html">GoTalk</a></span>
       </a>
       <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-        <a class="mr-5 hover:text-green-500 text-white " href="features.html">Features</a>
+        <a class="mr-5 hover:text-green-500 text-white" href="features.html">Features</a>
         <a class="mr-5 hover:text-green-500 text-white" href="aboutus.html">About us</a>
       </nav>
 
@@ -97,34 +113,31 @@
           <path d="M5 12h14M12 5l7 7-7 7"></path>
         </svg>
       </button>
-
     </div>
   </header>
 
-  <div id="chat-container" class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md mt-16">
 
-    <ul id="messages" class="space-y-3 mb-4">
-      
-    </ul>
+    <div id="chat-container" class="bg-white shadow-lg rounded-lg p-6 w-full">
+      <ul id="messages" class="space-y-3 mb-4">
+      </ul>
 
-    <form id="message-form" class="flex space-x-3">
-      <input id="message-input" type="text" placeholder="Type a message" required class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-      <button id="send-btn" type="submit" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">Send</button>
-    </form>
+      <form id="message-form" class="flex space-x-3">
+        <input id="message-input" type="text" placeholder="Type a message" required class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+        <button id="send-btn" type="submit" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">Send</button>
+      </form>
+    </div>
   </div>
-
 
   <footer class="bg-blue-1000 text-white body-font fixed bottom-0 w-full text-center">
     <div class="container mx-auto py-2 flex flex-wrap flex-col items-center">
-      <p class="text-sm text-center">© 2024 GoTalk — All rights reserved  |   A project by Hacktivists.</p>
+      <p class="text-sm text-center">© 2024 GoTalk — All rights reserved | A project by Hacktivists.</p>
     </div>
   </footer>
- 
- <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
- 
- <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
- 
- <script src="script.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  <script src="script.js"></script>
 
 </body>
+
 </html>
