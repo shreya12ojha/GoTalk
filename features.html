@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: url('features.gif') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+    }
+    header, footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-align: center;
+      height: 75px;
+      padding: 10px;
+      z-index: 10;
+    }
+    .main-content {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      padding: 4rem 17rem;
+      margin-top: 75px; /* Ensure content doesn't overlap header */
+      margin-bottom: 75px; /* Ensure content doesn't overlap footer */
+      justify-content: center; /* Center align content */
+      flex-direction: column;
+    }
+    .content-container {
+      background-color: rgba(255, 255, 255, 0.645); /* Slightly transparent white background */
+      border-radius: 8px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem; /* Add space below the content container */
+    }
+    .image-container {
+      max-width: 100%; /* Ensure it does not exceed container width */
+      height: auto;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .image-container img {
+      max-width: 87%; /* Make sure the image scales to fit the container */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header class="w-full bg-blue-1000 shadow-md fixed top-0">
+    <div class="container mx-auto flex flex-wrap flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <img src="icon.png" alt="icon">
+        <span class="ml-3 text-xl text-white"><a href="cover.html">GoTalk</a></span>
+      </a>
+      <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+        <a class="mr-5 hover:text-green-500 text-white" href="index.html">Chat Rooms</a>
+        <a class="mr-5 hover:text-green-500 text-white" href="features.html">Features</a>
+        <a class="mr-5 hover:text-green-500 text-white" href="#">About us</a>
+      </nav>
+      <button class="inline-flex items-center bg-green-500 border-0 py-1 px-3 focus:outline-none hover:bg-green-700 text-white rounded text-base mt-4 md:mt-0">
+        <a href="index.html">Register/ Login</a>
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="text-white body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+        <h1 class="sm:text-3xl text-2xl font-bold title-font mb-2 text-white">Welcome to GoTalk!</h1>
+        <p class="lg:w-1/2 w-full leading-relaxed text-white">Your one-step destination to chatting and getting to know a diverse range of people.</p>
+      </div>
+      <div class="flex flex-wrap justify-center">
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-200 p-6 rounded-lg">
+            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
+              </svg>
+            </div>
+            <h2 class="text-lg text-white font-bold title-font mb-2">Dynamic Functional Rooms</h2>
+            <p class="leading-relaxed text-base text-white">Enjoy a seamless chatting experience with three dedicated rooms, each designed to keep your messages organized and private. Switch between rooms effortlessly.</p>
+          </div>
+        </div>
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-200 p-6 rounded-lg">
+            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
+            <h2 class="text-lg text-white font-bold title-font mb-2">Personalized Cookies Functionality</h2>
+            <p class="leading-relaxed text-base text-white">Our smart cookies system ensures you stay connected without the hassle of re-login.</p>
+          </div>
+        </div>
+        <div class="xl:w-1/3 md:w-1/2 p-4 flex justify-center">
+          <div class="border border-gray-200 p-6 rounded-lg w-full max-w-sm">
+            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                <circle cx="6" cy="6" r="3"></circle>
+                <circle cx="6" cy="18" r="3"></circle>
+                <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+              </svg>
+            </div>
+            <h2 class="text-lg text-white font-bold title-font mb-2">Real-Time Communication</h2>
+            <p class="leading-relaxed text-base text-white">Engage in lively, real-time conversations powered by Firebase’s robust and centralized database. Our cutting-edge technology ensures your messages are delivered instantly, so you never miss a beat.</p>
+          </div>
+        </div>
+        <div class="xl:w-1/3 md:w-1/2 p-4 flex justify-center">
+          <div class="border border-gray-200 p-6 rounded-lg w-full max-w-sm">
+            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h2 class="text-lg text-white font-bold title-font mb-2">Intuitive User Interface</h2>
+            <p class="leading-relaxed text-base text-white">Navigate with ease through our sleek and modern UI, designed for a smooth user experience. From user-friendly chat rooms to seamless profile management, everything is just a click away.</p>
+            
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+      </div>
+      <div class="center-button-container">
+      <button class="align-center inline-flex items-center bg-green-500 border-0 py-1 px-3 focus:outline-none hover:bg-green-700 text-white rounded text-base mt-4 md:mt-0">
+        <a href="index.html">What are you waiting for? Get started now!</a>
+    </div>
+    </div>
+    
+  </section>
+  
+
+  <footer class="w-full bg-blue-1000 text-gray-600 body-font fixed bottom-0">
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <img src = "icon.png">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl text-white">GoTalk</span>
+      </a>
+      <p class="text-sm text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 GoTalk —
+        <a href="https://twitter.com/knyttneve" class="text-white ml-1" rel="noopener noreferrer" target="_blank">Hacktivists</a>
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        <a class="text-white">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-white">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-white">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-white">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
