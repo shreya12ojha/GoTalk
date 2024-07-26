@@ -1,4 +1,3 @@
-
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username');
 const room = urlParams.get('room');
@@ -78,8 +77,8 @@ socket.onmessage = function (event) {
 
 function displayMessage(message) {
   const messageParts = message.timestamp.split(' ');
-  const messageDate = messageParts[0]; // Extract date from timestamp
-  const messageTime = messageParts[1]; // Extract time from timestamp
+  const messageDate = messageParts[0]; 
+  const messageTime = messageParts[1]; 
 
   const messageElement = document.createElement("li");
 
